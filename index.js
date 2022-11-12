@@ -59,8 +59,8 @@ class Base extends require("stream").Transform {
     this.autoinvoker(Base);
     // add other classes method if methods do not already exist. Argument order matters!
     this.methodizer(Server);
-    // this.methodizeProperty(libFs,fns, misc)
-    // this.methodizePrototype(lab, misc)
+    this.methodizeProperty(libFs,fns, misc)
+    this.methodizePrototype(misc)
     //Set the maximum number of listeners to infinity
     this.setMaxListeners(Infinity);
   }
@@ -71,9 +71,9 @@ class Base extends require("stream").Transform {
   static Node = Node 
   static LinkedList = LinkedList
 
-  // path (path = '', base = './app/controllers/http') {
-  //   return require('path').join(base, path)
-  // }
+  path (path = '', base = './') {
+    return require('path').join(base, path)
+  }
   /**
      * @name getFromIterable
      * @function
